@@ -2,7 +2,6 @@ package auth
 
 import (
 	"encoding/json"
-	"github.com/liukaho/terraform-provider-nacos/internal/sdk"
 	"io/ioutil"
 	"net/http"
 	"net/url"
@@ -32,7 +31,7 @@ func NewAuthClient(host, username, password string) AuthClient {
 
 func (auth AuthClient) Login() (string, error) {
 
-	resp, err := http.PostForm(auth.host+sdk.LOGIN_PATH, auth.loginFormData())
+	resp, err := http.PostForm(auth.host+"/nacos/v1/auth/login", auth.loginFormData())
 	if err != nil {
 		return "", err
 	}

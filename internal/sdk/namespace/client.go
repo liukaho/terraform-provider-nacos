@@ -34,7 +34,7 @@ func (nc NamespaceClient) create(ctx context.Context, customNamespaceId, namespa
 	createRequestForm.Add("customNamespaceId", customNamespaceId)
 	createRequestForm.Add("namespaceName", namespaceName)
 	createRequestForm.Add("namespaceDesc", namespaceDesc)
-	url, err := url.Parse(nc.host + sdk.NAMESPACE_CREATE_PATH)
+	url, err := url.Parse(nc.host + "/nacos/v1/console/namespaces")
 	if err != nil {
 		return "", errors.Wrap(err, "url parse failed at create namespace")
 	}
